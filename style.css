@@ -1,0 +1,154 @@
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Big ball with inversion */
+.cursor__ball--big {
+  position: absolute;
+  width: 30px;  /* adjust size as needed */
+  height: 30px;
+  border-radius: 50%;
+  pointer-events: none;
+  backdrop-filter: invert(1);
+  -webkit-backdrop-filter: invert(1); /* Safari support */
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  z-index: 1000;
+}
+
+/* Small ball stays as pointer */
+.cursor__ball--small {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1001;
+}
+
+body {
+  background-color: #0B1A2C;
+  color: #fff; /* optional: ensures text is visible on dark background */
+  padding-left: clamp(1rem, 5vw, 5rem);
+  padding-right: clamp(1rem, 5vw, 5rem);
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 12vw, 10rem);
+  margin-top: 0;
+  margin-bottom: -0.35em;
+}
+
+body {
+  padding-left: clamp(1rem, 5vw, 5rem);
+  padding-right: clamp(1rem, 5vw, 5rem);
+}
+
+/* Top Navbar */
+.top-navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  padding: clamp(0.5rem, 2vw, 1rem) 0; /* remove side padding from body effect */
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;  /* ensure no inherited margins */
+}
+
+/* Capsule-style inverted buttons */
+.top-navbar button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  padding: clamp(0.4rem, 0.8vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+  border: 2px solid #000;
+  border-radius: 999px;
+  background-color: #000; /* inverted color */
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.top-navbar button:hover {
+  background-color: #fff; /* invert on hover */
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .top-navbar {
+    justify-content: center; /* center buttons on small screens */
+    flex-wrap: wrap;          /* allow wrapping if needed */
+    gap: 0.5rem;
+  }
+
+  .top-navbar button {
+    width: 100%;         /* full width for easier tapping */
+    max-width: 200px;    /* optional: prevent too-wide buttons */
+  }
+}
+
+/* Bottom Navbar container */
+.bottom-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 2rem); 
+  margin-top: clamp(1rem, 3vw, 3rem); 
+  flex-wrap: wrap; /* allows wrapping if needed */
+}
+
+/* Capsule buttons */
+.bottom-navbar button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  padding: clamp(0.5rem, 1vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  border: 2px solid #fff;  /* white border */
+  border-radius: 999px;
+  background: transparent;  /* keep minimalist */
+  color: #fff;              /* white text */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.bottom-navbar button:hover {
+  background-color: #fff;   /* fill white on hover */
+  color: #0B1A2C;           /* text becomes dark on hover */
+  transform: scale(1.05);
+}
+
+
+/* =======================
+   Mobile adjustments
+   ======================= */
+@media (max-width: 700px) {
+  .bottom-navbar {
+    flex-direction: column; /* stack vertically */
+    align-items: center;    /* center buttons horizontally */
+    gap: 0.75rem;           /* smaller gap between stacked buttons */
+  }
+
+  .bottom-navbar button {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);        /* slightly smaller font */
+    padding: clamp(0.4rem, 1.5vw, 0.8rem) clamp(1rem, 4vw, 1.5rem); /* smaller padding */
+    width: 100%; /* optional: make buttons full width for easy tapping */
+    max-width: 300px; /* optional: prevent too-wide buttons */
+  }
+}
+/* Mobile adjustments for H1 */
+@media (max-width: 700px) {
+  h1 {
+    text-align: center;
+  }
+}
+
