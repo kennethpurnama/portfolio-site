@@ -29,6 +29,8 @@
   z-index: 1001;
 }
 
+
+
 body {
   background-color: #0B1A2C;
   color: #fff; /* optional: ensures text is visible on dark background */
@@ -62,70 +64,168 @@ body {
 }
 
 /* Capsule-style inverted buttons */
+/* Top Navbar Buttons */
 .top-navbar button {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: clamp(0.8rem, 1.5vw, 1rem);
   padding: clamp(0.4rem, 0.8vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
-  border: 2px solid #000;
-  border-radius: 999px;
-  background-color: #000; /* inverted color */
-  color: #fff;
+  border: 2px solid #1A3868;           /* black stroke */
+  border-radius: 20px;
+  background: transparent;          /* transparent fill */
+  color: #fff;                      /* black text */
   cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 #1A3868;         /* black drop shadow */
+  transition: all 0.15s ease;
+}
+
+/* Clicked (active) state */
+.top-navbar button:active {
+  transform: scale(0.98);           /* click illusion */
+  box-shadow: none;                 /* remove shadow */
 }
 
 /* Hover effect */
 .top-navbar button:hover {
-  background-color: #fff; /* invert on hover */
-  color: #000;
-  transform: scale(1.05);
+  transform: scale(1.02);           /* subtle lift */
 }
 
 /* Mobile adjustments */
 @media (max-width: 480px) {
   .top-navbar {
-    justify-content: center; /* center buttons on small screens */
-    flex-wrap: wrap;          /* allow wrapping if needed */
+    justify-content: center;        /* center buttons on small screens */
+    flex-wrap: wrap;                /* allow wrapping if needed */
     gap: 0.5rem;
   }
 
   .top-navbar button {
-    width: 100%;         /* full width for easier tapping */
-    max-width: 200px;    /* optional: prevent too-wide buttons */
+    width: 100%;                    /* full width for easier tapping */
+    max-width: 200px;               /* prevent overly wide buttons */
   }
 }
 
-/* Bottom Navbar container */
-.bottom-navbar {
+/* LinkedIn button inherits top-navbar button styles */
+.linkedin-btn {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: clamp(0.5rem, 2vw, 2rem); 
-  margin-top: clamp(1rem, 3vw, 3rem); 
-  flex-wrap: wrap; /* allows wrapping if needed */
+  gap: 0.4rem; /* space between icon and text */
 }
 
-/* Capsule buttons */
-.bottom-navbar button {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-  padding: clamp(0.5rem, 1vw, 1rem) clamp(1.5rem, 3vw, 2rem);
-  border: 2px solid #fff;  /* white border */
-  border-radius: 999px;
-  background: transparent;  /* keep minimalist */
-  color: #fff;              /* white text */
-  cursor: pointer;
+/* LinkedIn icon styling */
+.linkedin-btn img {
+  width: 16px;
+  height: 16px;
   transition: all 0.2s ease;
 }
 
-/* Hover effect */
-.bottom-navbar button:hover {
-  background-color: #fff;   /* fill white on hover */
-  color: #0B1A2C;           /* text becomes dark on hover */
-  transform: scale(1.05);
+/* Hover effect - slightly scale and invert */
+.linkedin-btn:hover img {
+  transform: scale(1.15);
 }
+
+/* Click (active) effect */
+.linkedin-btn:active img {
+  transform: scale(0.95);
+}
+
+/* Shared styles for icon buttons */
+.top-navbar button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  padding: clamp(0.4rem, 0.8vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+  border: 2px solid #1A3868;
+  border-radius: 20px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #1A3868;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* consistent spacing between icon and text */
+}
+
+/* Clicked (active) state */
+.top-navbar button:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+/* Hover effect */
+.top-navbar button:hover {
+  transform: scale(1.02);
+}
+
+/* Icon styles (shared for both Gmail and LinkedIn) */
+.top-navbar button img {
+  width: 16px;
+  height: auto;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for icons */
+.top-navbar button:hover img {
+  transform: scale(1.15);
+}
+
+/* Active (clicked) effect for icons */
+.top-navbar button:active img {
+  transform: scale(0.95);
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .top-navbar {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .top-navbar button {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+}
+
+/* Ticker wrapper - hides overflow */
+.skills-ticker-wrapper {
+  width: 100vw;            /* full viewport width */
+  margin-left: calc(-1 * clamp(1rem, 5vw, 5rem)); /* cancel body padding */
+  margin-right: calc(-1 * clamp(1rem, 5vw, 5rem));
+  overflow: hidden;
+  margin-top: 4rem;        /* spacing under H1 */
+}
+
+/* Ticker container - horizontal flex */
+.skills-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  gap: 3rem; /* space between skills */
+  animation: scroll-ticker 60s linear infinite;
+}
+
+/* Each skill */
+.skills-ticker span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #fff;
+}
+
+/* Animation */
+@keyframes scroll-ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* adjust for number of repeated items */
+  }
+}
+
+
+
 
 
 /* =======================

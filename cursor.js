@@ -6,9 +6,9 @@ const cursorBig = document.querySelector('.cursor__ball--big');
 const cursorSmall = document.querySelector('.cursor__ball--small');
 
 let mouseX = 0, mouseY = 0; // actual mouse position
-let posX = 0, posY = 0;     // big ball position (for lag)
+let posX = 0, posY = 0;     // big ball position
 
-// Track mouse movement
+// Track mouse
 document.addEventListener('mousemove', e => {
   mouseX = e.clientX;
   mouseY = e.clientY;
@@ -30,8 +30,15 @@ function animate() {
 }
 animate();
 
-// Optional: hover effect for .hoverable elements
+// Optional: hover effects on .hoverable elements
 document.querySelectorAll('.hoverable').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
 });
+
+// Add a simple helloworld function for testing
+function helloworld() {
+  console.log('Hello, world!');
+}
+// Expose to window for easy debugging from the console
+window.helloworld = helloworld;
