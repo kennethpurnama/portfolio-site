@@ -5,64 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-  <div class="cursor">
-    <div class="cursor__ball cursor__ball--big"></div>
-    <div class="cursor__ball cursor__ball--small">
+  <section class="hero">
+
+    <div class="cursor">
+      <div class="cursor__ball cursor__ball--big"></div>
+      <div class="cursor__ball cursor__ball--small">
         <svg height="10" width="10">
-            <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+          <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
         </svg>
-    </div>
+      </div>
     </div>
 
     <nav class="top-navbar">
-     <button class="gmail-btn">
+      <button class="gmail-btn">
         <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png"
-      alt="Gmail logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png"
+          alt="Gmail logo"
         />
         Let's talk
-    </button>
-    <button class="linkedin-btn">
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/250px-LinkedIn_logo_initials.png"
-      alt="LinkedIn logo"
-    />
-    Let's connect
-  </button>
+      </button>
+      <button class="linkedin-btn">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/250px-LinkedIn_logo_initials.png"
+          alt="LinkedIn logo"
+        />
+        Let's connect
+      </button>
     </nav>
-  <header>
-    <h1>KENNETH</h1>
-    <h1>PURNAMA</h1>
-  </header>
-  <div class="skills-ticker-wrapper">
-  <div class="skills-ticker">
-    <span>UI/UX Design</span>
-    <span>Product Design</span>
-    <span>Multimedia</span>
-    <span>Branding</span>
-    <span>Project Management</span>
-    <span>Illustration</span>
-    <span>Front-end development</span>
-    <span>Web-Prototyping</span>
-    <span>App-Prototyping</span>
-    <span>Photography</span>
-    <span>Illustration</span>
-    <span>UI/UX Design</span>
-    <span>Product Design</span>
-    <span>Multimedia</span>
-    <span>Branding</span>
-    <span>Project Management</span>
-    <span>Illustration</span>
-    <span>Front-end development</span>
-    <span>Web-Prototyping</span>
-    <span>App-Prototyping</span>
-    <span>Photography</span>
-    <span>Illustration</span>
-  </div>
-</div>
-<script src="cursor.js"></script>
+
+    <header>
+      <h1>KENNETH</h1>
+      <h1>PURNAMA</h1>
+    </header>
+
+    <div class="skills-ticker-wrapper">
+      <div class="skills-ticker">
+        <span>UI/UX Design</span>
+        <span>Product Design</span>
+        <span>Multimedia</span>
+        <span>Branding</span>
+        <span>Project Management</span>
+        <span>Illustration</span>
+        <span>Front-end development</span>
+        <span>Web-Prototyping</span>
+        <span>App-Prototyping</span>
+        <span>Photography</span>
+        <span>Illustration</span>
+        <span>UI/UX Design</span>
+        <span>Product Design</span>
+        <span>Multimedia</span>
+        <span>Branding</span>
+        <span>Project Management</span>
+        <span>Illustration</span>
+        <span>Front-end development</span>
+        <span>Web-Prototyping</span>
+        <span>App-Prototyping</span>
+        <span>Photography</span>
+        <span>Illustration</span>
+      </div>
+    </div>
+  </section>
+  <section class="work-carousel" id="work">
+    <h2 class="work-carousel__title">My Works</h2>
+    <p class="work-text">Things I’ve poured my time (and coffee) into.</p>
+
+    <div class="coverflow-carousel">
+      <article class="coverflow-item">
+        <img src="images/project1.jpg" alt="Project 1">
+        <div class="coverflow-content">
+          <h3>Bloom Bliss</h3>
+          <p>Flowers are nature’s way of reminding us that beauty exists all around.</p>
+          <button>Learn More</button>
+        </div>
+      </article>
+
+      <article class="coverflow-item">
+        <img src="images/project2.jpg" alt="Project 2">
+        <div class="coverflow-content">
+          <h3>Whispers of Growth</h3>
+          <p>Stories of growth, patience, and the beauty of stillness.</p>
+          <button>Learn More</button>
+        </div>
+      </article>
+
+      <article class="coverflow-item">
+        <img src="images/project3.jpg" alt="Project 3">
+        <div class="coverflow-content">
+          <h3>Petals of Joy</h3>
+          <p>Vivid colors that brighten the world around them.</p>
+          <button>Learn More</button>
+        </div>
+      </article>
+    </div>
+    <button class="work-btn">see more</button>
+  </section>
+  <section class="tools-section">
+    <h2 class="tools-title">Tools I Love</h2>
+      <div class="tools-row">
+        <img src="https://via.placeholder.com/100x100?text=Figma" alt="Figma Logo" />
+        <img src="https://via.placeholder.com/100x100?text=Adobe" alt="Adobe Logo" />
+        <img src="https://via.placeholder.com/100x100?text=React" alt="React Logo" />
+        <img src="https://via.placeholder.com/100x100?text=VSCode" alt="VSCode Logo" />
+        <img src="https://via.placeholder.com/100x100?text=Notion" alt="Notion Logo" />
+      </div>
+  </section>
+
+
+
+
+  <script src="cursor.js"></script>
+  <script src="buttonanimation.js"></script>
+  <script src="coverflow.js"></script>
+
 
 </body>
 </html>
