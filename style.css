@@ -37,7 +37,7 @@ body {
   color: #fff;
   padding-left: clamp(1rem, 5vw, 5rem);
   padding-right: clamp(1rem, 5vw, 5rem);
-  font-family: 'Rubik', 'montserrat', sans-serif;
+  font-family: 'Rubik', 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
 
@@ -52,21 +52,18 @@ body {
   margin-left: -50vw;
   margin-right: -50vw;
   box-sizing: border-box;
-  overflow-x: visible;
-  overflow-y: visible;
   background: linear-gradient(180deg, #0C2037 0%, #0B1A2C 100%);
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
   padding: clamp(1rem, 5vw, 5rem);
   padding-bottom: clamp(1rem, 4vw, 3rem);
-  max-width: 100vw;
 }
 
 /* ============================
    Typography
    ============================ */
 h1 {
-  font-family:'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 12vw, 10rem);
   margin-top: 0;
@@ -88,8 +85,6 @@ h2, h3, h4, h5, h6, p, button, span, a, li {
   gap: clamp(0.5rem, 2vw, 1.5rem);
   padding: clamp(0.5rem, 2vw, 1rem) 0;
   width: 100%;
-  box-sizing: border-box;
-  margin-left: 0;
 }
 
 .top-navbar button {
@@ -127,11 +122,6 @@ h2, h3, h4, h5, h6, p, button, span, a, li {
   transform: scale(1.15);
 }
 
-.linkedin-btn img {
-  width: 16px;
-  height: 16px;
-}
-
 /* ============================
    Skills Ticker
    ============================ */
@@ -158,12 +148,8 @@ h2, h3, h4, h5, h6, p, button, span, a, li {
 }
 
 @keyframes scroll-ticker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ============================
@@ -171,13 +157,10 @@ h2, h3, h4, h5, h6, p, button, span, a, li {
    ============================ */
 .work-carousel {
   text-align: center;
-  width: 100%;
-  overflow: visible;
   background: #0F203A;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: clamp(4rem, 10vw, 8rem) 0;
-  position: relative;
 }
 
 .work-carousel__title {
@@ -194,158 +177,182 @@ h2, h3, h4, h5, h6, p, button, span, a, li {
 /* ============================
    Infinite Center Carousel
    ============================ */
+:root {
+  --card-w: min(92vw, 1360px);
+  --gap: clamp(16px, 3vw, 40px);
+  --pill-bg: rgba(0, 0, 0, 0.65);
+}
+
 .infinite-carousel {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: visible;
   width: 100%;
-  height: clamp(350px, 55vw, 700px);
-  perspective: 1200px;
-  gap: 2rem;
+  overflow: visible;
+  min-height: clamp(320px, 52vw, 780px);
+  perspective: 1600px;
+  --shift: calc(var(--card-w) + var(--gap));
 }
 
 .carousel-item {
   position: absolute;
-  top: 0;
   left: 50%;
-  width: min(90vw, 1400px);
-  max-width: 95vw;
+  top: 0;
+  transform: translateX(-50%);
+  width: var(--card-w);
   aspect-ratio: 16 / 9;
-  border-radius: 10px;
+  border-radius: 18px;
   overflow: hidden;
-  background: #000;
-  transition: transform 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 650ms cubic-bezier(.22,.8,.24,1),
+    filter 550ms ease,
+    opacity 550ms ease;
   cursor: pointer;
-
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  will-change: transform;
+  display: flex;
 }
 
-@media (max-width: 768px) {
-  .carousel-item {
-    width: clamp(320px, 90vw, 500px);
-  }
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: filter 0.5s ease;
-}
-
-/* Active (center) */
 .carousel-item.active {
-  transform: translateX(-50%) translateZ(0);
+  transform: translateX(-50%);
   z-index: 5;
-  filter: brightness(1);
+  opacity: 1;
+  filter: none;
 }
 
-/* Left (previous) */
 .carousel-item.prev {
-  transform: translateX(-153%);
+  transform: translateX(calc(-50% - var(--shift)));
+  opacity: 0.7;
+  filter: blur(2px) brightness(1.05);
   z-index: 2;
-  filter: brightness(1.3) blur(4px);
-  opacity: 0.8;
 }
 
-/* Right (next) */
 .carousel-item.next {
-  transform: translateX(53%);
+  transform: translateX(calc(-50% + var(--shift)));
+  opacity: 0.7;
+  filter: blur(2px) brightness(1.05);
   z-index: 2;
-  filter: brightness(1.3) blur(4px);
-  opacity: 0.8;
 }
 
-/* Hidden (out of view) */
 .carousel-item.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-/* Pills and Info */
+/* ============================
+   Project Card Content
+   ============================ */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow: hidden; /* makes sure nothing leaks outside */
+  border-radius: 18px;
+}
+
+/* Image block */
+.project-media {
+  position: relative;
+  width: 100%;
+  flex: 0 0 70%; /* top area takes 70% of card height */
+  overflow: hidden; /* ensures image cropping stays inside card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5; /* fallback background if image fails */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  /* 👇 clean white border inside the card */
+  padding: clamp(0.5rem, 1vw, 0.8rem);
+  box-sizing: border-box;
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crop instead of stretch */
+  object-position: center; /* center focus for cropping */
+  border: none; /* remove white border to avoid weird edges */
+  border-radius: 0; /* flush fit into its container */
+  display: block;
+  transition: transform 0.4s ease;
+  transform: scale(1.05);
+}
+
+/* subtle zoom on hover, still cropped within bounds */
+.carousel-item:hover .project-media img {
+  transform: scale(1.03);
+}
+
+/* Info section (bottom, always visible) */
+.project-info {
+  flex: 1;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* ensures text stacks from the top */
+  align-items: flex-start; /* ⬅️ aligns all content to the left */
+  text-align: left; /* ⬅️ ensures text is left aligned */
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  min-height: 30%; /* ensures text zone never collapses */
+}
+
+.project-title {
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: 600;
+  color: #0B1A2C;
+  margin: 0 0 0.3rem;
+  text-align: left; /* ensures text aligns left */
+  width: 100%; /* makes alignment consistent */
+}
+
+.project-desc {
+  margin: 0;
+  color: #2b2f36;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  line-height: 1.5;
+  opacity: 0.95;
+  flex-grow: 1;
+  text-align: left; /* ⬅️ ensures paragraph is left aligned */
+  width: 100%;
+}
+
+.project-tag {
+  align-self: flex-start;
+  background: #5D8CED;
+  color: #fff;
+  font-weight: 500;
+  font-size: clamp(0.7rem, 1vw, 0.95rem);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 3px 0 #3B60B0;
+  white-space: nowrap;
+  margin-top: 1rem;
+}
+
+/* Pill */
 .item-pill {
   position: absolute;
-  top: 2rem;
+  top: clamp(10px, 1.5vw, 16px);
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.2); /* translucent dark background */
-  color: #fff; /* white text for contrast */
-  font-weight: 400; /* thinner text weight */
-  padding: 0.8rem 1.6rem;
+  padding: 0.5rem 1.1rem;
   border-radius: 999px;
-  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
-  letter-spacing: 0.03em;
-  backdrop-filter: blur(4px); /* adds subtle glass effect */
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* ensures text readability */
-  transition: all 0.3s ease;
-}
-
-
-.item-info {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  display: flex;
-  flex-direction: row; /* keep button and text side by side */
-  align-items: center;
-  justify-content: flex-start; /* align items to the left */
-  gap: 1rem;
-  text-align: left; /* ensures text inside paragraphs is left-aligned */
-}
-
-.item-info p {
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  margin: 0;
-  max-width: 60%;
+  background: var(--pill-bg);
+  color: #fff;
   font-weight: 400;
+  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
   letter-spacing: 0.02em;
-  transition: color 0.3s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
-
-/* Default light text (for dark backgrounds) */
-.item-info.light-text p {
-  color: white;
-}
-
-/* Dark text (for bright backgrounds) */
-.item-info.dark-text p {
-  color: #111;
-}
-
-
-.see-more {
-  all: unset; /* completely resets native button styles */
-  display: inline-block;
-  padding: 0.8rem 1.6rem;
-  border-radius: 15px;
-  background: #5D8CED;
-  font-weight: 600;
-  cursor: pointer;
-  color: #0B1A2C;
-  box-shadow: 0 5px 0 #3B60B0;
-  transition: all 0.15s ease;
-  font-size: clamp(0.85rem, 1.2vw, 1rem);
-  text-align: center;
-  user-select: none;
-}
-
-/* Hover */
-.see-more:hover {
-  transform: scale(1.02);
-}
-
-/* Active (click animation) */
-.see-more:active {
-  transform: scale(0.97) translateY(2px);
-  box-shadow: none;
-}
-
 
 /* ============================
    Tools Section
@@ -360,24 +367,19 @@ h2, h3, h4, h5, h6, p, button, span, a, li {
   background: #0B1A2C;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
-  padding-top: clamp(3rem, 6vw, 6rem);
-  padding-bottom: clamp(3rem, 6vw, 6rem);
-  padding-left: clamp(1rem, 5vw, 5rem);
-  padding-right: clamp(1rem, 5vw, 5rem);
-  max-width: 100vw;
+  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 5vw, 5rem);
   box-sizing: border-box;
 }
 
 .tools-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
-  font-size: clamp(0.5rem, 1.5vw, 1rem); /* scales nicely between mobile and desktop */
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   color: rgba(255, 255, 255, 0.85);
   text-align: center;
   letter-spacing: 0.04em;
   line-height: 1.4;
-  margin-bottom: clamp(1rem, 2.5vw, 2rem); /* proportional vertical rhythm */
-  margin-top: 0; /* remove overlap influence */
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 
 .tools-row {
