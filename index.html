@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
 </head>
 <body>
@@ -72,44 +73,78 @@
     <h2 class="work-carousel__title">My Works</h2>
     <p class="work-text">Things I’ve poured my time (and coffee) into.</p>
 
-    <div class="coverflow-carousel">
-      <article class="coverflow-item">
-        <img src="images/project1.jpg" alt="Project 1">
-        <div class="coverflow-content">
-          <h3>Bloom Bliss</h3>
-          <p>Flowers are nature’s way of reminding us that beauty exists all around.</p>
-          <button>Learn More</button>
+    <div class="infinite-carousel">
+      <div class="carousel-item" data-index="0">
+        <div class="item-pill">Enaccess Maps</div>
+        <img src="https://i.imgur.com/x59xNWM.png" alt="Project 1">
+        <div class="item-info">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis metus non magna varius fermentum.</p>
+          <button class="see-more">See More</button>
         </div>
-      </article>
+      </div>
 
-      <article class="coverflow-item">
-        <img src="images/project2.jpg" alt="Project 2">
-        <div class="coverflow-content">
-          <h3>Whispers of Growth</h3>
-          <p>Stories of growth, patience, and the beauty of stillness.</p>
-          <button>Learn More</button>
+      <div class="carousel-item" data-index="1">
+        <div class="item-pill">Roomie</div>
+        <img src="https://i.imgur.com/x59xNWM.png" alt="Project 2">
+        <div class="item-info">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae libero vitae justo cursus volutpat. Sed fringilla odio in mauris egestas, quis tincidunt nunc bibendum nec.</p>
+          <button class="see-more">See More</button>
         </div>
-      </article>
+      </div>
 
-      <article class="coverflow-item">
-        <img src="images/project3.jpg" alt="Project 3">
-        <div class="coverflow-content">
-          <h3>Petals of Joy</h3>
-          <p>Vivid colors that brighten the world around them.</p>
-          <button>Learn More</button>
+      <div class="carousel-item" data-index="2">
+        <div class="item-pill">GHCC Prototyping</div>
+        <img src="https://i.imgur.com/x59xNWM.png" alt="Project 3">
+        <div class="item-info">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <button class="see-more">See More</button>
         </div>
-      </article>
+      </div> 
+
+      <div class="carousel-item" data-index="3">
+        <div class="item-pill">Branding Projects</div>
+        <img src="https://i.imgur.com/x59xNWM.png" alt="Project 4">
+        <div class="item-info">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <button class="see-more">See More</button>
+        </div>  
+      </div>
+
+      <div class="carousel-item" data-index="4">
+        <div class="item-pill">HoloThreads</div>
+        <img src="https://i.imgur.com/x59xNWM.png" alt="Project 5">
+        <div class="item-info">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <button class="see-more">See More</button>
+        </div>  
+      </div>
+
+      <div class="carousel-item" data-index="5">
+        <div class="item-pill">Photography</div>
+        <img src="https://i.imgur.com/x59xNWM.png" alt="Project 6">
+        <div class="item-info">
+          <p>Lorem ipsum.</p>
+          <button class="see-more">See More</button>
+        </div>  
+      </div>
+    </div> <!-- ✅ closes .infinite-carousel properly -->
+
+    <div class="carousel-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
-    <button class="work-btn">see more</button>
   </section>
+
+
   <section class="tools-section">
-    <h2 class="tools-title">Tools I Love</h2>
+    <h2 class="tools-title">Tools I love using</h2>
       <div class="tools-row">
-        <img src="https://via.placeholder.com/100x100?text=Figma" alt="Figma Logo" />
-        <img src="https://via.placeholder.com/100x100?text=Adobe" alt="Adobe Logo" />
-        <img src="https://via.placeholder.com/100x100?text=React" alt="React Logo" />
-        <img src="https://via.placeholder.com/100x100?text=VSCode" alt="VSCode Logo" />
-        <img src="https://via.placeholder.com/100x100?text=Notion" alt="Notion Logo" />
+        <img src="https://i.imgur.com/zunmbLv.png" alt="Adobe Logo" />
+        <img src="https://i.imgur.com/TEyVd1z.png" alt="Figma Logo" />
+        <img src="https://i.imgur.com/DD46yAm.png" alt="VSC Logo" />
+        <img src="https://i.imgur.com/0aYu2ma.png" alt="Github Logo" />
+        <img src="https://i.imgur.com/FsJtn76.png" alt="Airtable Logo" />
       </div>
   </section>
 

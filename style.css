@@ -9,7 +9,6 @@
   z-index: 9999;
 }
 
-/* Big ball with inversion */
 .cursor__ball--big {
   position: absolute;
   width: 30px;
@@ -17,13 +16,12 @@
   border-radius: 50%;
   pointer-events: none;
   backdrop-filter: invert(1);
-  -webkit-backdrop-filter: invert(1); /* Safari support */
+  -webkit-backdrop-filter: invert(1);
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease;
   z-index: 1000;
 }
 
-/* Small ball (inner dot) */
 .cursor__ball--small {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -39,43 +37,28 @@ body {
   color: #fff;
   padding-left: clamp(1rem, 5vw, 5rem);
   padding-right: clamp(1rem, 5vw, 5rem);
-  font-family: 'Montserrat', sans-serif;
-  overflow-x: hidden; /* prevent horizontal scroll from full-width hero */
+  font-family: 'Rubik', 'montserrat', sans-serif;
+  overflow-x: hidden;
 }
-
-section + section {
-  margin-top: -2rem; /* gently overlap next section upward */
-}
-
 
 /* ============================
-   Hero Section Wrapper
+   Hero Section
    ============================ */
 .hero {
   position: relative;
-
-  /* 👇 Makes the hero truly edge-to-edge */
   width: 100vw;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-
-  /* 👇 Prevent the infamous horizontal scroll issue caused by scrollbar width */
   box-sizing: border-box;
-  overflow-x: clip;
-  overflow-y:visible; 
-
-  /* 👇 Styling */
+  overflow-x: visible;
+  overflow-y: visible;
   background: linear-gradient(180deg, #0C2037 0%, #0B1A2C 100%);
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
-
-  /* 👇 Spacing */
   padding: clamp(1rem, 5vw, 5rem);
   padding-bottom: clamp(1rem, 4vw, 3rem);
-
-  /* 👇 Ensure rounded corners scale nicely */
   max-width: 100vw;
 }
 
@@ -83,22 +66,16 @@ section + section {
    Typography
    ============================ */
 h1 {
+  font-family:'Montserrat', sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 12vw, 10rem);
   margin-top: 0;
   margin-bottom: -0.35em;
 }
-h2 {
-  font-weight: 600;
-  font-size: clamp(1rem,6vw, 5rem);
-  margin-top: 0;
-  margin-bottom: -0.35em;
-}
-p {
-  font-weight: 400;
-  font-size: clamp(1rem, 3vw, 2rem);
-  margin-top: 0;
-  margin-bottom: -0.35em;
+
+h2, h3, h4, h5, h6, p, button, span, a, li {
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: 0.01em;
 }
 
 /* ============================
@@ -115,11 +92,10 @@ p {
   margin-left: 0;
 }
 
-/* Navbar Buttons */
 .top-navbar button {
   font-weight: 600;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  padding: clamp(0.4rem, 0.8vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  padding: clamp(0.5rem, 0.9vw, 1rem) clamp(1rem, 2.2vw, 1.8rem);
   border: 2px solid #1A3868;
   border-radius: 20px;
   background: transparent;
@@ -132,17 +108,15 @@ p {
   gap: 0.4rem;
 }
 
-/* Button Interactions */
+.top-navbar button:hover {
+  transform: scale(1.02);
+}
+
 .top-navbar button:active {
   transform: scale(0.98);
   box-shadow: none;
 }
 
-.top-navbar button:hover {
-  transform: scale(1.02);
-}
-
-/* Button Icons */
 .top-navbar button img {
   width: 16px;
   height: auto;
@@ -151,17 +125,6 @@ p {
 
 .top-navbar button:hover img {
   transform: scale(1.15);
-}
-
-.top-navbar button:active img {
-  transform: scale(0.95);
-}
-
-/* LinkedIn Specific */
-.linkedin-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
 }
 
 .linkedin-btn img {
@@ -204,184 +167,188 @@ p {
 }
 
 /* ============================
-   Responsive Adjustments
+   Work Carousel Section
    ============================ */
-@media (max-width: 700px) {
-  h1 {
-    text-align: center;
-  }
-
-  .top-navbar {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .top-navbar button {
-    width: 100%;
-    max-width: 200px;
-    justify-content: center;
-  }
-
-  .hero {
-    border-radius: 20px;
-    padding: clamp(1rem, 6vw, 3rem);
-  }
-}
-
 .work-carousel {
-  position: relative;
-  z-index: 5;
-  background: transparent;
-  padding-top: 4rem;
-  padding-bottom:4rem;
+  text-align: center;
+  width: 100%;
   overflow: visible;
+  background: #0F203A;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  position: relative;
 }
 
 .work-carousel__title {
-  text-align: center;
-  margin-top: 0;        /* prevents margin collapse */
-  padding-top: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.5rem;
 }
 
 .work-text {
-  text-align: center;
-  width: auto;
-  margin-top: clamp(2rem, 6vh, 5rem); /* distance from hero */
-  margin-bottom: 1rem;                 /* small gap before title */
-  line-height: 1.4;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
 }
-/* Container */
-.coverflow-carousel {
+
+/* ============================
+   Infinite Center Carousel
+   ============================ */
+.infinite-carousel {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1200px;
-  overflow: hidden;
-    /* full-bleed layout */
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-
-  /* centering and layout */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: clamp(  20vh, 40vh, 70vh);
-  perspective: 1600px;
   overflow: visible;
-  box-sizing: border-box;
-  padding: 0;                  /* removes top/bottom padding */
-  margin-top: 0;               /* ensures no accidental spacing */
-}
-
-.coverflow-item {
-  position: absolute;
-  width: clamp(600px, 85vw, 800px); /* 👈 wide, nearly full width */
-  aspect-ratio: 16 / 7;              /* 👈 cinematic rectangle */
-  border-radius: 24px;
-  overflow: hidden;
-  background: #fff;
-  transition: transform 1s ease, opacity 0.8s ease;
-  cursor: pointer;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Card image */
-.coverflow-item img {
   width: 100%;
-  height: 65%;
-  object-fit: cover;
+  height: clamp(350px, 55vw, 700px);
+  perspective: 1200px;
+  gap: 2rem;
 }
 
-/* Content below image */
-.coverflow-content {
-  padding: 1rem;
-  text-align: center;
-  color: #111;
-}
-
-.coverflow-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.coverflow-content p {
-  font-size: 0.9rem;
-  color: #444;
-}
-
-.coverflow-content button {
-  margin-top: 0.75rem;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  border: 1px solid #e61cb0;
-  background: transparent;
-  color: #e61cb0;
-  font-weight: 600;
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(90vw, 1400px);
+  max-width: 95vw;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  transition: transform 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
   cursor: pointer;
+
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: clamp(320px, 90vw, 500px);
+  }
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.5s ease;
+}
+
+/* Active (center) */
+.carousel-item.active {
+  transform: translateX(-50%) translateZ(0);
+  z-index: 5;
+  filter: brightness(1);
+}
+
+/* Left (previous) */
+.carousel-item.prev {
+  transform: translateX(-153%);
+  z-index: 2;
+  filter: brightness(1.3) blur(4px);
+  opacity: 0.8;
+}
+
+/* Right (next) */
+.carousel-item.next {
+  transform: translateX(53%);
+  z-index: 2;
+  filter: brightness(1.3) blur(4px);
+  opacity: 0.8;
+}
+
+/* Hidden (out of view) */
+.carousel-item.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Pills and Info */
+.item-pill {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.2); /* translucent dark background */
+  color: #fff; /* white text for contrast */
+  font-weight: 400; /* thinner text weight */
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(4px); /* adds subtle glass effect */
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* ensures text readability */
   transition: all 0.3s ease;
 }
 
-.coverflow-content button:hover {
-  background: #e61cb0;
+
+.item-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: row; /* keep button and text side by side */
+  align-items: center;
+  justify-content: flex-start; /* align items to the left */
+  gap: 1rem;
+  text-align: left; /* ensures text inside paragraphs is left-aligned */
+}
+
+.item-info p {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  margin: 0;
+  max-width: 60%;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+/* Default light text (for dark backgrounds) */
+.item-info.light-text p {
   color: white;
 }
 
-/* States controlled by JS */
-.coverflow-item.active {
-  transform: translateX(0) translateZ(150px) rotateY(0deg) scale(1);
-  opacity: 1;
-  z-index: 3;
-}
-.coverflow-item.prev {
-  transform: translateX(-200px) translateZ(-100px) rotateY(25deg) scale(0.9);
-  opacity: 0.6;
-  z-index: 2;
-}
-.coverflow-item.next {
-  transform: translateX(200px) translateZ(-100px) rotateY(-25deg) scale(0.9);
-  opacity: 0.6;
-  z-index: 2;
-}
-.coverflow-item.far {
-  transform: translateX(400px) translateZ(-200px) rotateY(-45deg) scale(0.8);
-  opacity: 0.3;
-  z-index: 1;
+/* Dark text (for bright backgrounds) */
+.item-info.dark-text p {
+  color: #111;
 }
 
-.work-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  /* Centering & layout */
-  margin: 2.5rem auto; /* centers horizontally + adds space above/below */
-  text-align: center;
-
-  /* Typography & visuals */
-  font-weight: 600;
-  font-size: clamp(1.2rem, 2.3vw, 1.5rem);
-  padding: clamp(0.6rem, 1.2vw, 1.2rem) clamp(1.5rem, 3vw, 2.25rem);
-  border: 2.5px solid #5D8CED;
-  border-radius: 30px;
+.see-more {
+  all: unset; /* completely resets native button styles */
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 15px;
   background: #5D8CED;
-  color: #0B1A2C;
+  font-weight: 600;
   cursor: pointer;
+  color: #0B1A2C;
+  box-shadow: 0 5px 0 #3B60B0;
+  transition: all 0.15s ease;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  text-align: center;
+  user-select: none;
+}
 
-  /* Effects */
-  box-shadow: 0 6px 0 #3B60B0;
-  transition: all 0.2s ease;
-  gap: 0.6rem;
+/* Hover */
+.see-more:hover {
+  transform: scale(1.02);
+}
+
+/* Active (click animation) */
+.see-more:active {
+  transform: scale(0.97) translateY(2px);
+  box-shadow: none;
 }
 
 
 /* ============================
-   Tools I Love Section (Fixed Alignment)
+   Tools Section
    ============================ */
 .tools-section {
   position: relative;
@@ -391,48 +358,43 @@ p {
   margin-left: -50vw;
   margin-right: -50vw;
   background: #0B1A2C;
-
-  /* Proper centering and spacing */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  padding: clamp(2rem, 6vw, 5rem) 0;
-  gap: clamp(2rem, 4vw, 3rem);
-
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  overflow: hidden;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  padding-top: clamp(3rem, 6vw, 6rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
+  padding-left: clamp(1rem, 5vw, 5rem);
+  padding-right: clamp(1rem, 5vw, 5rem);
+  max-width: 100vw;
   box-sizing: border-box;
 }
 
 .tools-title {
-  font-weight: 600;
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.5rem, 1.5vw, 1rem); /* scales nicely between mobile and desktop */
   color: rgba(255, 255, 255, 0.85);
   text-align: center;
-  letter-spacing: 0.05em;
-  margin: 0;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  margin-bottom: clamp(1rem, 2.5vw, 2rem); /* proportional vertical rhythm */
+  margin-top: 0; /* remove overlap influence */
 }
 
-/* Row of tool logos */
 .tools-row {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: clamp(2rem, 4vw, 5rem);
+  gap: clamp(3rem, 5vw, 6rem);
   max-width: 90vw;
   margin: 0 auto;
-
-  /* Make sure it stays centered visually */
   filter: brightness(100%) grayscale(100%) opacity(0.9);
   transition: filter 0.3s ease;
 }
 
 .tools-row img {
-  width: clamp(60px, 8vw, 100px);
-  height: auto;
+  width: auto;
+  height: clamp(50px, 4vw, 100px);
   opacity: 0.7;
   transition: all 0.3s ease;
 }
@@ -442,9 +404,3 @@ p {
   filter: brightness(120%) drop-shadow(0 0 12px rgba(255, 255, 255, 0.1));
   transform: scale(1.05);
 }
-
-
-
-
-
-
